@@ -1,9 +1,10 @@
 {
-  "name": "@rm52/ngx-material-upload",
-  "version": "0.0.1",
+  "name": "@r-52/ngx-material-upload",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^13.*",
-    "@angular/core": "^13.*"
+    "@angular/core": "^13.*",
+    "@angular/material": "^13.*"
   },
   "dependencies": {
     "tslib": "^2.3.0"
