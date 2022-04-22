@@ -9,5 +9,8 @@ services:
       dockerfile: Dockerfile
       target: basic
     network_mode: host
+    ports:
+      - "6006:6006"
+      - "4200:4200"
     volumes:
       - .:/workspaces:cached

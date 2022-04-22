@@ -1,0 +1,44 @@
+<span class="file-input-text">{{ fileSelectionText }}</span>
+<button
+  mat-button
+  [ngStyle]="{'display': selectedFiles ? 'none' : 'inherit'}"
+  type="button"
+  color="primary"
+  class="ngx-material-upload-file-button"
+  (click)="file.click()"
+  [attr.aria-label]="fileSelectionButtonText"
+>
+  <span>{{ fileSelectionButtonText }}</span>
+  <input
+    #file
+    type="file"
+    style="display: none"
+    [accept]="acceptedFileTypes"
+    [multiple]="enableMultiFileSelection"
+    (change)="fileInputSelectionChanged($event)"
+  />
+</button>
+<button
+  mat-raised-button
+  type="button"
+  color="primary"
+  class="ngx-material-upload-file-button"
+  (click)="upload()"
+  *ngIf="enableDirectUploadButton && selectedFiles"
+  [attr.aria-label]="uploadFilesButtonText"
+>
+  {{ uploadFilesButtonText }}
+</button>
+<span class="file-input-text">{{ selectedFileText }}</span>
+<button
+  mat-icon-button
+  (click)="fileInputSelectionChanged()"
+  type="button"
+  [attr.aria-label]="removeFilesButtonText"
+  *ngIf="selectedFiles && selectedFiles?.length"
+>
+  <mat-icon>close</mat-icon>
+  <ng-container *ngIf="removeFilesButtonText.length">
+    {{removeFilesButtonText}}
+  </ng-container>
+</button>

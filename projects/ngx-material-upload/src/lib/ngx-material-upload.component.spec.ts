@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NgxMaterialUploadComponent } from './ngx-material-upload.component';
+import { MaterialModule } from './material.module';
 
 describe('NgxMaterialUploadComponent', () => {
   let component: NgxMaterialUploadComponent;
@@ -8,9 +9,9 @@ describe('NgxMaterialUploadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgxMaterialUploadComponent ]
-    })
-    .compileComponents();
+      declarations: [NgxMaterialUploadComponent],
+      imports: [MaterialModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +22,10 @@ describe('NgxMaterialUploadComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should not have any files selected', () => {
+    component.fileInputSelectionChanged();
+    expect(component.selectedFiles?.length).not.toBeDefined();
   });
 });
